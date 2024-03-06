@@ -1,0 +1,10 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Pokemon as MyPokemon } from "../../components/react/Pokemon";
+
+const { pokemon } = Astro.params;
+---
+
+<Layout title="Your Pokémon">
+  <MyPokemon client:load name={pokemon} />
+</Layout>

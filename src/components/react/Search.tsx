@@ -31,7 +31,8 @@ export const Search: React.FC = () => {
         {
           pokemonNames && searchValue && (pokemonNames.map(pokemon => {
             if (pokemon.name.includes(searchValue)) {
-              return <li key={pokemon.name}><a href={`pokemons/${pokemon.name}`}>{pokemon.name}</a></li>
+              const name = pokemon.name
+              return <li key={name}><a href={`/pokemons/${name}`}>{name}</a></li>
             }
           }))
         }
