@@ -3,12 +3,31 @@ import Layout from "../layouts/Layout.astro";
 import { Search } from "../components/react/Search";
 ---
 
-<Layout title="Welcome to Astro.">
-  <header>
-    <h1>Pokémon Searcher Updated</h1>
-    <h2>Search for your favorite pokémon!</h2>
-    <Search client:load />
+<Layout title="Pokémon Searcher Updated">
+  <header class="flex flex-col text-center mt-16 max-md:px-5">
+    <h1 class="text-3xl font-bold text-slate-200">Pokémon Searcher Updated</h1>
+    <p class="text-sm font-semibold text-slate-200 mt-2">
+      Welcome to the new PokeAPI Pokémon Searcher, to search your favorite
+      Pokémon!
+    </p>
   </header>
+
+  <div class="flex flex-col text-center mt-7">
+    <h2 class="text-2xl font-semibold mb-4 text-slate-200 max-md:px-5">
+      Search for your favorite pokémon!
+    </h2>
+    <Search client:load />
+  </div>
+
+  <footer class="w-full mb-5 text-center absolute bottom-0">
+    <p class="max-w-[500px] w-[300px] m-auto text-slate-500 font-semibold">
+      All Rights Deserved. Project made by <a
+        class="text-slate-400 underline"
+        target="_blank"
+        href="https://github.com/Xardimods">Enyel Liranzo Lugo (Xardimods)</a
+      >
+    </p>
+  </footer>
 </Layout>
 
 <style></style>

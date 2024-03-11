@@ -5,6 +5,24 @@ import { Pokemon as MyPokemon } from "../../components/react/Pokemon";
 const { pokemon } = Astro.params;
 ---
 
-<Layout title="Your Pokémon">
+<Layout title=`Pokémon - ${pokemon}`>
+  <header class="flex flex-col text-center mt-16 max-md:px-5">
+    <h1 class="text-3xl font-bold text-slate-200">Pokémon Searcher Updated</h1>
+    <p class="text-sm font-semibold text-slate-200 mt-2">
+      Welcome to the new PokeAPI Pokémon Searcher, to search your favorite
+      Pokémon!
+    </p>
+  </header>
+
   <MyPokemon client:load name={pokemon} />
+
+  <footer class="w-full mb-5 text-center">
+    <p class="max-w-[600px] w-[300px] m-auto text-slate-500 font-semibold">
+      All Rights Deserved. Project made by <a
+        class="text-slate-400 underline"
+        target="_blank"
+        href="https://github.com/Xardimods">Enyel Liranzo Lugo (Xardimods)</a
+      >
+    </p>
+  </footer>
 </Layout>
