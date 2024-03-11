@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { type Result, type PokemonResponse } from "../../types/names"
+import { SearchPokemonCard } from "./SearchPokemonCard"
 
 export const Search: React.FC = () => {
 
@@ -18,25 +19,39 @@ export const Search: React.FC = () => {
       .catch(err => console.error(err))
   }, [])
 
+  // const pokemonNamesArray = pokemonNames && searchValue && (pokemonNames.toSorted().map(pokemon => {
+  //   if (pokemon.name.includes(searchValue)) {
+  //     const name = pokemon.name
+  //     return <li key={name}><a href={`/pokemons/${name}`}>{name}</a></li>
+  //   }
+  // }))
+
+  const pokemonNamesArray = pokemonNames && searchValue && pokemonNames
+    .filter(pokemon => pokemon.name.includes(searchValue))
+    .slice(0, 5) // Obtener los primeros cinco elementos
+    .map(pokemon => (
+      <SearchPokemonCard key={pokemon.name} name={pokemon.name} />
+    ))
+
   return (
     <div>
-      <label htmlFor="searchPokemon">Search</label>
-      <input
-        type="search"
-        name="searchPokemon"
-        id="searchPokemon"
-        onChange={handleChangeName}
-      />
+      <div className="flex flex-row justify-center">
+        <label htmlFor="searchPokemon" className="mb-4 text-slate-300">
+          <input
+            type="search"
+            name="searchPokemon"
+            id="searchPokemon"
+            className="w-[250px] px-2.5 py-4 border-2 border-slate-400 rounded-md bg-slate-900"
+            placeholder="Search Pokémon"
+            onChange={handleChangeName}
+          />
+        </label>
+      </div>
       <ul>
         {
-          pokemonNames && searchValue && (pokemonNames.map(pokemon => {
-            if (pokemon.name.includes(searchValue)) {
-              const name = pokemon.name
-              return <li key={name}><a href={`/pokemons/${name}`}>{name}</a></li>
-            }
-          }))
+          pokemonNamesArray
         }
       </ul>
-    </div>
+    </div >
   )
 }
