@@ -10,5 +10,3 @@ In this new searcher, is adding more things, such as:
 - And so on! 
 
 Feel free to contribuate!
-
-Deploy: Soon...
